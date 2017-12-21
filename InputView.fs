@@ -7,7 +7,7 @@ open ObjCRuntime
   
 [<AllowNullLiteral>]
 type InputView (identifier : string, items : int list) as this = 
-    inherit ColoredView ()
+    inherit NSView ()
 
     let updated = new Event<float>()
 

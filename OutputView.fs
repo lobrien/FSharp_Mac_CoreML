@@ -6,7 +6,7 @@ open CoreGraphics
   
 [<AllowNullLiteral>]
 type OutputView () as this = 
-    inherit ColoredView ()
+    inherit NSView ()
 
     let label = new NSText()
 
@@ -15,6 +15,6 @@ type OutputView () as this =
         label.Editable <- false
         this.AddSubview label
 
-        label.Frame <- new CGRect(10., 10., 100., 50.)
+        label.Frame <- new CGRect(10., 10., 300., 50.)
     
-    member this.Price with set p = label.Value <- p.ToString()
+    member this.Price with set p = label.Value <- String.Format("Predicted price: {0:#,###} Quatloos", [| p |])

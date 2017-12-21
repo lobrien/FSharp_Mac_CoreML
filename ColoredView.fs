@@ -10,6 +10,7 @@ type ColoredView () =
    inherit NSView () 
 
    member val BackgroundColor : CGColor = NSColor.Red.CGColor with get, set
+
    override this.WantsUpdateLayer = true
 
    override this.UpdateLayer () = 
@@ -17,6 +18,6 @@ type ColoredView () =
 
    member this.SetBackgroundColor (c : NSColor) = this.BackgroundColor <- c.CGColor
 
-   override this.IntrinsicContentSize = new CGSize(200., 400.)
+   override this.IntrinsicContentSize = new CGSize(150., 150.)
 
    override this.ToString () = sprintf "ColoredView [%s] %s" (this.Frame.ToString()) (this.BackgroundColor.Components.ToString())
